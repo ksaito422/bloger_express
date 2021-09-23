@@ -18,3 +18,32 @@
   `make stop`
 
 その他は Makefile 参照
+
+# ディレクトリ構成
+
+### docker
+
+dockerfile など
+
+### docs
+
+ドキュメント類
+
+- openapi
+- ER 図
+
+### work
+
+作業ディレクトリ
+
+- api
+
+  api などのバックエンド
+
+- front
+
+  web フロントエンド
+
+- app
+
+  ネイティブアプリ
