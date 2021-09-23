@@ -1,0 +1,5 @@
+{
+  "watch": ["./**/*"],
+  "ext": "ts",
+  "exec": "NODE_PATH=./ ts-node ./app.ts"
+}

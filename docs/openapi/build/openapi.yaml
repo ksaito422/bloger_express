@@ -1,0 +1,446 @@
+openapi: 3.0.0
+info:
+  title: Qiita Clone API
+  description: Qiitaっぽい記事投稿サイトのAPI
+  version: '1.0'
+servers:
+  - url: 'http://localhost:4100/api/v1'
+    description: 開発用APIモック
+  - url: 'https://localhost:4100/api/v1'
+    description: 開発用APIモック
+tags:
+  - name: top
+    description: トップページ用
+  - name: auth
+    description: 認証
+  - name: user
+    description: 利用者
+  - name: article
+    description: 記事
+paths:
+  /top:
+    get:
+      operationId: top
+      summary: トップページ表示用
+      tags:
+        - top
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /auth/login:
+    post:
+      operationId: post-auth-login
+      summary: ログイン
+      tags:
+        - auth
+      requestBody:
+        description: メールアドレスとパスワード
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: test@example.com
+                password:
+                  type: string
+                  example: User1234
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  accessToken:
+                    type: string
+                  expiresIn:
+                    type: integer
+                  tokenType:
+                    type: string
+              example:
+                accessToken: token1234-token1234
+                expiresIn: 172800
+                tokenType: bearer
+        '401':
+          description: 401 Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '422':
+          description: 422 Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /auth/logout:
+    post:
+      operationId: post-auth-logout
+      summary: ログアウト
+      tags:
+        - auth
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /auth/register:
+    post:
+      operationId: post-auth-register
+      summary: 新規登録
+      tags:
+        - auth
+      requestBody:
+        description: ユーザー名・メールアドレス・パスワード
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: テスト太郎
+                email:
+                  type: string
+                  example: test@example.com
+                password:
+                  type: string
+                  example: User1234
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  accessToken:
+                    type: string
+                  expiresIn:
+                    type: integer
+                  tokenType:
+                    type: string
+              example:
+                accessToken: token1234-token1234
+                expiresIn: 172800
+                tokenType: bearer
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '422':
+          description: 422 Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /auth/unregister:
+    delete:
+      operationId: post-auth-unregister
+      summary: 退会
+      tags:
+        - auth
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /users:
+    get:
+      operationId: get-user
+      summary: 利用者情報取得
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+              example:
+                name: テスト太郎
+                email: test@example.com
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /users/articles:
+    get:
+      operationId: get-user-article
+      summary: 利用者投稿記事取得
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  title:
+                    type: string
+                  content:
+                    type: string
+              example:
+                title: テスト01
+                content: テストテストテスト
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  /articles:
+    post:
+      operationId: post-article
+      summary: 記事投稿
+      tags:
+        - article
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: 記事内容投稿
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: テスト01
+                content:
+                  type: string
+                  example: テストテストテスト
+      responses:
+        '201':
+          description: OK
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '422':
+          description: 422 Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+  '/articles/{articleId}':
+    put:
+      operationId: put-article
+      summary: 記事編集
+      tags:
+        - article
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: 記事内容編集
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: テスト01
+                content:
+                  type: string
+                  example: テストテストテスト
+      responses:
+        '204':
+          description: OK
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '422':
+          description: 422 Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+    delete:
+      operationId: delete-article
+      summary: 記事削除
+      tags:
+        - article
+      security:
+        - bearerAuth: []
+      responses:
+        '204':
+          description: OK
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '422':
+          description: 422 Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object

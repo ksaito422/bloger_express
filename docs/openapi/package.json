@@ -1,0 +1,17 @@
+{
+  "name": "api-document",
+  "version": "1.0.0",
+  "description": "api document and mock server for \\\"Qiita Qlone\\\"",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "bundle": "swagger-cli bundle -o ./build/openapi.yaml -t yaml ./openapi.yaml --dereference",
+    "test": "dredd",
+    "mock": "prism mock -h 127.0.0.1 -p 4100 ./build/openapi.yaml"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "@stoplight/prism-cli": "^4.3.0",
+    "dredd": "^14.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+description: 429 Too Many Requests
+
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        errors:
+          type: object

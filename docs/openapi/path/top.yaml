@@ -1,0 +1,17 @@
+get:
+  operationId: top
+  summary: トップページ表示用
+  tags: [top]
+
+  security:
+    - bearerAuth: []
+
+  responses:
+    "200":
+      description: OK
+
+    "403":
+      $ref: "../response/Error403.yaml"
+
+    "429":
+      $ref: "../response/Error429.yaml"

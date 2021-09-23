@@ -1,0 +1,17 @@
+delete:
+  operationId: post-auth-unregister
+  summary: 退会
+  tags: [auth]
+
+  security:
+    - bearerAuth: []
+
+  responses:
+    "200":
+      description: OK
+
+    "403":
+      $ref: "../response/Error403.yaml"
+
+    "429":
+      $ref: "../response/Error429.yaml"

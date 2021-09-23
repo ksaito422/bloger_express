@@ -1,0 +1,48 @@
+post:
+  operationId: post-auth-register
+  summary: 新規登録
+  tags: [auth]
+  requestBody:
+    description: ユーザー名・メールアドレス・パスワード
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: テスト太郎
+            email:
+              type: string
+              example: test@example.com
+            password:
+              type: string
+              example: User1234
+
+  responses:
+    "201":
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              accessToken:
+                type: string
+              expiresIn:
+                type: integer
+              tokenType:
+                type: string
+
+          example:
+            accessToken: token1234-token1234
+            expiresIn: 172800
+            tokenType: bearer
+
+    "403":
+      $ref: "../response/Error403.yaml"
+
+    "422":
+      $ref: "../response/Error422.yaml"
+
+    "429":
+      $ref: "../response/Error429.yaml"

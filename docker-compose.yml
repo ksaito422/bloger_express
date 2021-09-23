@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+  front:
+    build:
+      context: .
+      dockerfile: ./docker/front/Dockerfile
+    depends_on:
+      - db
+    tty: true
+    volumes:
+      - ./work/front:/usr/src/app/front
+    ports:
+      - "${APP_PORT}:3000"
+    command: yarn dev
+    container_name: zenn_front
+
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    depends_on:
+      - db
+    tty: true
+    volumes:
+      - ./work/api:/api
+    ports:
+      - "${API_PORT}:8000"
+      # TODO yarn nodemonが機能していないため、直す
+      # docker起動時にnodemonを起動したい
+    command: yarn nodemon
+    container_name: zenn_api
+
+  db:
+    image: mysql:8.0
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d
+    ports:
+      - "${DB_PORT}:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - TZ=${TZ}
+    container_name: zenn_db

@@ -1,0 +1,9 @@
+description: 403 Forbidden
+
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        errors:
+          type: object

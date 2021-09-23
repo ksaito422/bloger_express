@@ -1,0 +1,29 @@
+get:
+  operationId: get-user-article
+  summary: 利用者投稿記事取得
+  tags: [user]
+
+  security:
+    - bearerAuth: []
+
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+
+          example:
+            title: テスト01
+            content: テストテストテスト
+
+    "403":
+      $ref: "../response/Error403.yaml"
+
+    "429":
+      $ref: "../response/Error429.yaml"

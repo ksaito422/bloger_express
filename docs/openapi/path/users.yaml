@@ -1,0 +1,29 @@
+get:
+  operationId: get-user
+  summary: 利用者情報取得
+  tags: [user]
+
+  security:
+    - bearerAuth: []
+
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+
+          example:
+            name: テスト太郎
+            email: test@example.com
+
+    "403":
+      $ref: "../response/Error403.yaml"
+
+    "429":
+      $ref: "../response/Error429.yaml"

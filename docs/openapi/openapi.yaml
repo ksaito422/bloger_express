@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Qiita Clone API
+  description: Qiitaっぽい記事投稿サイトのAPI
+  version: "1.0"
+servers:
+  - url: "http://localhost:4100/api/v1"
+    description: 開発用APIモック
+  - url: "https://localhost:4100/api/v1"
+    description: 開発用APIモック
+tags:
+  - name: top
+    description: トップページ用
+  - name: auth
+    description: 認証
+  - name: user
+    description: 利用者
+  - name: article
+    description: 記事
+paths:
+  #トップページ用
+  "/top":
+    $ref: "./path/top.yaml"
+
+  # 認証
+  "/auth/login":
+    $ref: "./path/auth.login.yaml"
+  "/auth/logout":
+    $ref: "./path/auth.logout.yaml"
+  "/auth/register":
+    $ref: "./path/auth.register.yaml"
+  "/auth/unregister":
+    $ref: "./path/auth.unregister.yaml"
+
+  # 利用者
+  "/users":
+    $ref: "./path/users.yaml"
+  "/users/articles":
+    $ref: "./path/users.articles.yaml"
+
+  # 記事
+  "/articles":
+    $ref: "./path/articles.yaml"
+  "/articles/{articleId}":
+    $ref: "./path/articles.articleId.yaml"
