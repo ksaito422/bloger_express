@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Qiita Clone API
-  description: Qiitaっぽい記事投稿サイトのAPI
+  title: Zenn Clone API
+  description: Zennっぽい記事投稿サイトのAPI
   version: '1.0'
 servers:
   - url: 'http://localhost:4100/api/v1'
@@ -279,14 +279,22 @@ paths:
           content:
             application/json:
               schema:
+                type: array
                 properties:
                   title:
                     type: string
                   content:
                     type: string
               example:
-                title: テスト01
-                content: テストテストテスト
+                - id: 1
+                  title: テスト01
+                  content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+                - id: 2
+                  title: テスト02
+                  content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+                - id: 3
+                  title: テスト03
+                  content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
         '403':
           description: 403 Forbidden
           content:
@@ -306,6 +314,47 @@ paths:
                   errors:
                     type: object
   /articles:
+    get:
+      operationId: get-article
+      summary: 全記事取得
+      tags:
+        - article
+      description: 全記事取得
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+              example:
+                - id: 1
+                  title: テスト01
+                  content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+                - id: 2
+                  title: テスト02
+                  content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+                - id: 3
+                  title: テスト03
+                  content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+        '403':
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+        '429':
+          description: 429 Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
     post:
       operationId: post-article
       summary: 記事投稿

@@ -12,6 +12,7 @@ get:
       content:
         application/json:
           schema:
+            type: array
             properties:
               title:
                 type: string
@@ -19,8 +20,15 @@ get:
                 type: string
 
           example:
-            title: テスト01
-            content: テストテストテスト
+            - id: 1
+              title: テスト01
+              content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+            - id: 2
+              title: テスト02
+              content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
+            - id: 3
+              title: テスト03
+              content: 記事の内容が入ります。記事の内容が入ります。記事の内容が入ります。
 
     "403":
       $ref: "../response/Error403.yaml"
