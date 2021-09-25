@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { MyHeader } from '../components/common/Header';
+
+import { MyHeader } from '../components/organisms/Header';
+
 import { HomeScreen } from '../screens/Home/Home.screen';
+import { RegisterScreen } from '../screens/Auth/Register.screen';
 
 const Stack = createStackNavigator();
 
@@ -11,10 +14,18 @@ export const Navigation = () => {
 		<NavigationContainer>
 			<Stack.Navigator
 				screenOptions={({ route, navigation }) => ({
-					header: () => <MyHeader route={route} options={'options'} back={navigation.back} />,
+					header: () => (
+						<MyHeader
+							route={route}
+							options={'option'}
+							back={navigation.canGoBack()}
+							navigation={navigation}
+						/>
+					),
 				})}
 			>
 				<Stack.Screen name="Home" component={HomeScreen} />
+				<Stack.Screen name="Register" component={RegisterScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
