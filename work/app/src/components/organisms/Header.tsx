@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { getHeaderTitle } from '@react-navigation/elements';
 import { ButtonType } from '../../types';
 import { useNav } from '../../hooks/useNav';
-import { COLOR } from '../../styles';
+import { COLOR, SPACE } from '../../styles';
 
 /**
  * 共通ヘッダーコンポーネント
@@ -12,7 +12,11 @@ import { COLOR } from '../../styles';
  */
 
 const Back: FC<ButtonType> = ({ onPress }) => {
-	return <Icon name="LeftOutlined" size={15} onPress={onPress} />;
+	return (
+		<TouchableOpacity onPress={onPress} style={styles.back}>
+			<Icon name="chevron-left" size={20} />
+		</TouchableOpacity>
+	);
 };
 
 export const MyHeader = ({ navigation, route, options, back }: any) => {
@@ -32,5 +36,8 @@ export const MyHeader = ({ navigation, route, options, back }: any) => {
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: COLOR.primary,
+	},
+	back: {
+		paddingRight: SPACE.secondary,
 	},
 });
