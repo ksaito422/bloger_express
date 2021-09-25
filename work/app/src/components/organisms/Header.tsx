@@ -16,8 +16,6 @@ const Back: FC<ButtonType> = ({ onPress }) => {
 };
 
 export const MyHeader = ({ navigation, route, options, back }: any) => {
-	console.log(route);
-	console.log(navigation.canGoBack());
 	const { goBack } = useNav();
 	const title = getHeaderTitle(options, route.name);
 
