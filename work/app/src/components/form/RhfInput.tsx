@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Input } from './Input';
+import { Input } from 'src/components/form/Input';
 import { useForm, Controller } from 'react-hook-form';
-import { RhfInputType } from '../../types';
+import { RhfInputType } from 'src/types';
 
 export const RhfInput: FC<RhfInputType> = ({ name, defaultValue, placeHolder, control }) => {
 	const {

@@ -2,10 +2,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { MyHeader } from '../components/organisms/Header';
+import { MyHeader } from 'src/components/organisms/Header';
 
-import { HomeScreen } from '../screens/Home/Home.screen';
-import { RegisterScreen } from '../screens/Auth/Register.screen';
+import { HomeScreen } from 'src/screens/Home/Home.screen';
+import { RegisterScreen } from 'src/screens/Auth/Register.screen';
 
 /**
  * ナビゲーション名 & 遷移時に渡すパラメータ

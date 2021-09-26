@@ -1,7 +1,7 @@
 import React, { memo, useMemo, FC } from 'react';
 import { View } from 'react-native';
-import { WINDOW } from '../../styles';
-import { SpacingType } from '../../types';
+import { WINDOW } from 'src/styles';
+import { SpacingType } from 'src/types';
 
 export const Spacing: FC<SpacingType> = memo(({ vertical }) => {
 	const spacingStyles = useMemo(
