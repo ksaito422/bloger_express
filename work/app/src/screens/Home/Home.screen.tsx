@@ -13,7 +13,7 @@ export const HomeScreen = () => {
 	const { navigate } = useNav();
 
 	return (
-		<SafeAreaView edges={['left', 'right']} style={styles.safeAreaView}>
+		<SafeAreaView edges={['bottom']} style={styles.safeAreaView}>
 			<View style={styles.loginForm}>
 				<LoginForm />
 				<Spacing vertical={2} />
@@ -27,7 +27,7 @@ export const HomeScreen = () => {
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	safeAreaView: {
 		flex: 1,
 		paddingHorizontal: SPACE.primary,
