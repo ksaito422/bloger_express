@@ -16,7 +16,7 @@ type FormInfoType = {
 	password: string;
 };
 
-export const RegisterForm: FC<any> = ({}) => {
+export const RegisterForm: FC = () => {
 	const { control, handleSubmit } = useForm({ resolver: yupResolver(RegisterSchema) });
 	const { register } = useRegister();
 

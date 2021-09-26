@@ -26,3 +26,18 @@ export const RegisterSchema = yup.object().shape({
 		.matches(/(?=.*[0-9])/, PASSWORD_NUMBER)
 		.required(`パスワード${REQUIRED}`),
 });
+
+export const LoginSchema = yup.object().shape({
+	email: yup //
+		.string()
+		.email(EMAIL)
+		.required(`メールアドレス${REQUIRED}`),
+	password: yup //
+		.string()
+		.min(8, PASSWORD_MIN)
+		.max(20, PASSWORD_MAX)
+		.matches(/(?=.*[A-Z])/, PASSWORD_UPPER)
+		.matches(/(?=.*[a-z])/, PASSWORD_LOWER)
+		.matches(/(?=.*[0-9])/, PASSWORD_NUMBER)
+		.required(`パスワード${REQUIRED}`),
+});
