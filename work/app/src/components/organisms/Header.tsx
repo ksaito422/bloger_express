@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import { getHeaderTitle } from '@react-navigation/elements';
-import { ButtonType } from '../../types';
-import { useNav } from '../../hooks/useNav';
-import { COLOR, SPACE } from '../../styles';
+import { ButtonType } from 'src/types';
+import { useNav } from 'src/hooks/useNav';
+import { COLOR, SPACE } from 'src/styles';
 
 /**
  * 共通ヘッダーコンポーネント
