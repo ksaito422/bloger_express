@@ -1,15 +1,24 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import { LoginSchema } from 'src/schema';
+
+import { useLogin } from 'src/hooks/useLogin';
 import { RhfInput } from 'src/components/form/RhfInput';
 import { Button } from 'src/components/button/Button';
-import { useForm } from 'react-hook-form';
-import { useLogin } from 'src/hooks/useLogin';
 
-export const LoginForm: FC<any> = ({}) => {
-	const { control, handleSubmit } = useForm();
+type FormInfoType = {
+	email: string;
+	password: string;
+};
+
+export const LoginForm: FC = () => {
+	const { control, handleSubmit } = useForm({ resolver: yupResolver(LoginSchema) });
 	const { login } = useLogin();
 
-	const onSubmit = formInfo => login(formInfo);
+	const onSubmit: SubmitHandler<FormInfoType> = formInfo => login(formInfo);
 
 	return (
 		<View>
