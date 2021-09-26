@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { RhfInput } from '../form/RhfInput';
-import { Button } from '../button/Button';
+import { RhfInput } from 'src/components/form/RhfInput';
+import { Button } from 'src/components/button/Button';
 import { useForm } from 'react-hook-form';
-import { useLogin } from '../../hooks/useLogin';
+import { useLogin } from 'src/hooks/useLogin';
 
 export const LoginForm: FC<any> = ({}) => {
 	const { control, handleSubmit } = useForm();
