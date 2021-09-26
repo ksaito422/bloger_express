@@ -1,18 +1,26 @@
 import React, { FC } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+import { RegisterSchema } from 'src/schema';
 import { COLOR } from 'src/styles';
 import { useRegister } from 'src/hooks/useRegister';
 import { RhfInput } from 'src/components/form/RhfInput';
 import { Button } from 'src/components/button/Button';
 import { Spacing } from 'src/components/common/Spacing';
 
+type FormInfoType = {
+	name: string;
+	email: string;
+	password: string;
+};
+
 export const RegisterForm: FC<any> = ({}) => {
-	const { control, handleSubmit } = useForm();
+	const { control, handleSubmit } = useForm({ resolver: yupResolver(RegisterSchema) });
 	const { register } = useRegister();
 
-	const onSubmit = formInfo => register(formInfo);
+	const onSubmit: SubmitHandler<FormInfoType> = formInfo => register(formInfo);
 
 	return (
 		<View style={styles.container}>
