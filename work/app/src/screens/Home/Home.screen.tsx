@@ -7,6 +7,7 @@ import { SPACE, COLOR } from '../../styles';
 import { Spacing } from '../../components/common/Spacing';
 import { Button } from '../../components/button/Button';
 import { LoginForm } from '../../components/organisms/LoginForm';
+import { ArticleBox } from 'src/components/organisms/ArticleBox';
 
 export const HomeScreen = () => {
 	const { navigate } = useNav();
@@ -20,6 +21,8 @@ export const HomeScreen = () => {
 			</View>
 
 			<Spacing vertical={2} />
+
+			<ArticleBox title="タイトルが入ります" onPress={() => console.log('goto detail screen')} />
 		</SafeAreaView>
 	);
 };

@@ -19,3 +19,8 @@ export type RhfInputType = {
 export type SpacingType = {
 	vertical: number;
 };
+
+export type ArticleBoxType = {
+	onPress: () => void;
+	title: string;
+};

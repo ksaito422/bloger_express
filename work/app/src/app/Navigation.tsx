@@ -7,7 +7,15 @@ import { MyHeader } from '../components/organisms/Header';
 import { HomeScreen } from '../screens/Home/Home.screen';
 import { RegisterScreen } from '../screens/Auth/Register.screen';
 
-const Stack = createStackNavigator();
+/**
+ * ナビゲーション名 & 遷移時に渡すパラメータ
+ */
+export type RouteParamType = {
+	Home: undefined;
+	Register: undefined;
+};
+
+const Stack = createStackNavigator<RouteParamType>();
 
 export const Navigation = () => {
 	return (
