@@ -2,11 +2,11 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useNav } from '../../hooks/useNav';
-import { SPACE, COLOR } from '../../styles';
-import { Spacing } from '../../components/common/Spacing';
-import { Button } from '../../components/button/Button';
-import { LoginForm } from '../../components/organisms/LoginForm';
+import { useNav } from 'src/hooks/useNav';
+import { SPACE, COLOR } from 'src/styles';
+import { Spacing } from 'src/components/common/Spacing';
+import { Button } from 'src/components/button/Button';
+import { LoginForm } from 'src/components/organisms/LoginForm';
 import { ArticleBox } from 'src/components/organisms/ArticleBox';
 
 export const HomeScreen = () => {
