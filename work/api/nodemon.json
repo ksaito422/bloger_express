@@ -1,5 +1,5 @@
 {
-  "watch": ["./**/*"],
+  "watch": ["api/**/*"],
   "ext": "ts",
-  "exec": "NODE_PATH=./ ts-node ./app.ts"
+  "exec": "NODE_PATH=./ ts-node index.ts"
 }
