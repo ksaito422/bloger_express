@@ -54,4 +54,8 @@ back:
 db:
 	docker exec -it zenn_db sh
 sql:
-	docker-compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
+	docker exec -it zenn_db sh -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
+migrate:
+	docker exec -it zenn_api sh -c 'yarn migrate'
+seed:
+	docker exec -it zenn_api sh -c 'yarn seed'

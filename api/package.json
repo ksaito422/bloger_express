@@ -7,7 +7,9 @@
     "start": "node ./bin/www",
     "tsc": "tsc",
     "ts-node": "NODE_PATH=./ ts-node index.ts",
-    "nodemon": "nodemon"
+    "nodemon": "nodemon",
+    "migrate": "prisma migrate dev",
+    "seed": "prisma db seed"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
