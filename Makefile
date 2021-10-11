@@ -49,11 +49,9 @@ log-db:
 	docker-compose logs db
 log-db-watch:
 	docker-compose logs --follow db
-front:
-	docker-compose exec front sh
-api:
-	docker-compose exec api sh
+back:
+	docker exec -it zenn_api sh
 db:
-	docker-compose exec db bash
+	docker exec -it zenn_db sh
 sql:
 	docker-compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
