@@ -2,8 +2,12 @@ post:
   operationId: post-auth-register
   summary: 新規登録
   tags: [auth]
+
+  security:
+    - bearerAuth: []
+
   requestBody:
-    description: ユーザー名・メールアドレス・パスワード
+    description: ユーザー名
     content:
       application/json:
         schema:
@@ -12,12 +16,6 @@ post:
             name:
               type: string
               example: テスト太郎
-            email:
-              type: string
-              example: test@example.com
-            password:
-              type: string
-              example: User1234
 
   responses:
     "201":
@@ -26,17 +24,14 @@ post:
         application/json:
           schema:
             properties:
-              accessToken:
-                type: string
-              expiresIn:
-                type: integer
-              tokenType:
+              id:
+                type: uuid
+              name:
                 type: string
 
           example:
-            accessToken: token1234-token1234
-            expiresIn: 172800
-            tokenType: bearer
+            id: fjkfjkif-8383-43kjk
+            name: テスト太郎
 
     "403":
       $ref: "../response/Error403.yaml"
