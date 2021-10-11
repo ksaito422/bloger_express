@@ -2,19 +2,9 @@ post:
   operationId: post-auth-login
   summary: ログイン
   tags: [auth]
-  requestBody:
-    description: メールアドレスとパスワード
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            email:
-              type: string
-              example: test@example.com
-            password:
-              type: string
-              example: User1234
+
+  security:
+    - bearerAuth: []
 
   responses:
     "200":
@@ -23,17 +13,14 @@ post:
         application/json:
           schema:
             properties:
-              accessToken:
-                type: string
-              expiresIn:
-                type: integer
-              tokenType:
+              id:
+                type: uuid
+              name:
                 type: string
 
           example:
-            accessToken: token1234-token1234
-            expiresIn: 172800
-            tokenType: bearer
+            id: fjkfjkif-8383-43kjk
+            name: テスト太郎
 
     "401":
       $ref: "../response/Error401.yaml"
