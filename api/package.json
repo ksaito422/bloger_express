@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./bin/www",
+    "start:debug": "nodemon",
     "tsc": "tsc",
     "ts-node": "NODE_PATH=./ ts-node index.ts",
     "nodemon": "nodemon",

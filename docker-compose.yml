@@ -11,7 +11,7 @@ services:
       - ./api:/api
     ports:
       - "${API_PORT}:8000"
-    command: yarn nodemon
+    # command: yarn nodemon
     container_name: zenn_api
 
   db:
