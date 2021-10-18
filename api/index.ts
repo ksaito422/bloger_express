@@ -7,7 +7,7 @@ const port = 8000;
 // src/routes/indexでルーティングする
 const router = express.Router();
 routes(router);
-app.use('/', router);
+app.use('/api/v1', router);
 
 // 共通エラーハンドリング
 app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
