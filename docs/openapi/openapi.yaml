@@ -6,6 +6,8 @@ info:
 servers:
   - url: "http://localhost:4100/api/v1"
     description: 開発用APIモック
+  - url: "http://localhost:8000/api/v1"
+    description: ローカル環境
 tags:
   - name: top
     description: トップページ用
