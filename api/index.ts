@@ -1,5 +1,6 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import routes from 'src/routes';
+import * as HttpException from 'src/exceptions/errorException';
 
 const app = express();
 const port = 8000;
@@ -9,8 +10,14 @@ const router = express.Router();
 routes(router);
 app.use('/api/v1', router);
 
+// Httpエラーの仕分け
+app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+  err.message === '400' && next(HttpException.badRequestException());
+  err.message === '403' && next(HttpException.forbiddenException());
+});
+
 // 共通エラーハンドリング
-app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   console.error(err);
 
   res.status(err.statusCode || 500).json({
