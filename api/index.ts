@@ -13,9 +13,8 @@ app.use('/api/v1', router);
 app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error(err);
 
-  res.status(err.status || 500).json({
-    status: err.status || 500,
-    detail: err.message || err,
+  res.status(err.statusCode || 500).json({
+    message: err.message || err,
     errors: err.errors || '',
   });
 });
