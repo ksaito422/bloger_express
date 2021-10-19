@@ -7,4 +7,5 @@ import { Router } from 'express';
  */
 export default function (router: Router) {
   require('src/routes/articles').default(router);
+  require('src/routes/auth').default(router);
 }
