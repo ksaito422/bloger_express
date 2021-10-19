@@ -1,5 +1,11 @@
 import express from 'express';
 import routes from 'src/routes';
+import dotenv from 'dotenv';
+import { firebaseConfig } from 'src/config/firebaseConfig';
+import * as admin from 'firebase-admin';
+
+dotenv.config();
+admin.initializeApp(firebaseConfig);
 
 const app = express();
 const port = 8000;
