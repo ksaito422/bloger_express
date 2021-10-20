@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction } from 'express';
-
+import * as HttpErrorCode from 'src/exceptions/errorCode';
 import { getArticleAll } from 'src/models/article';
 
 /**
@@ -11,6 +11,8 @@ import { getArticleAll } from 'src/models/article';
 export const index = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const articles = await getArticleAll();
+
+    throw new Error(HttpErrorCode.HTTP_BAD_REQUEST);
 
     res.status(200).json(articles);
   } catch (e) {
