@@ -1,6 +1,5 @@
 import { Response, Request, NextFunction } from 'express';
-import * as admin from 'firebase-admin';
-
+import { verifyIdToken } from 'src/services/verifyIdToken';
 import { getUser } from 'src/models/user';
 
 /**
@@ -13,11 +12,8 @@ import { getUser } from 'src/models/user';
  */
 export const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const bearerToken = await req.header('authorization');
-
-    const idToken = await bearerToken!.replace('Bearer ', '');
-    const decodedToken = await admin.auth().verifyIdToken(idToken);
-    const user = await getUser(decodedToken.uid);
+    const decodedToken = await verifyIdToken(req, next);
+    const user = await getUser(decodedToken!.uid);
 
     res.status(200).json({ id: user.id, name: user.name });
   } catch (e) {
