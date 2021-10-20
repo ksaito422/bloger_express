@@ -16,10 +16,16 @@ const router = express.Router();
 routes(router);
 app.use('/api/v1', router);
 
-// Httpエラーの仕分け
+// Httpエラーの分類
 app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
   err.message === '400' && next(HttpException.badRequestException());
+  err.message === '401' && next(HttpException.unauthorizedException());
   err.message === '403' && next(HttpException.forbiddenException());
+  err.message === '404' && next(HttpException.notfoundException());
+  err.message === '409' && next(HttpException.conflictException());
+  err.message === '422' && next(HttpException.unprocessableEntityException());
+  err.message === '429' && next(HttpException.tooManyRequestsException());
+  next(HttpException.internalServerErrorException());
 });
 
 // 共通エラーハンドリング
