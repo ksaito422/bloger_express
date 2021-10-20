@@ -25,6 +25,9 @@ app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
   err.message === '409' && next(HttpException.conflictException());
   err.message === '422' && next(HttpException.unprocessableEntityException());
   err.message === '429' && next(HttpException.tooManyRequestsException());
+
+  // Firebaseのエラーが発生した場合、500エラーを返す
+  err.code === 'auth/argument-error' && next(HttpException.firebaseVerifyIdTokenException());
   next(HttpException.internalServerErrorException());
 });
 

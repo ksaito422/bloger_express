@@ -44,3 +44,9 @@ export const internalServerErrorException = (
 ): HttpException => {
   return new HttpException(500, message);
 };
+
+export const firebaseVerifyIdTokenException = (
+  message = 'ログイン中のユーザーを取得できませんでした。'
+): HttpException => {
+  return new HttpException(500, message);
+};
