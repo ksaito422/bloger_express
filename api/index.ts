@@ -33,7 +33,7 @@ app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
 
 // 共通エラーハンドリング
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-  console.error(err);
+  console.error('>>> ERROR ', err);
 
   res.status(err.statusCode || 500).json({
     message: err.message || err,
