@@ -1,5 +1,11 @@
 import { Response, Request, NextFunction } from 'express';
-import { getArticleAll, getArticleDetail, saveArticle, updateArticle } from 'src/interfaces/models/article';
+import {
+  getArticleAll,
+  getArticleDetail,
+  saveArticle,
+  updateArticle,
+  deleteArticle,
+} from 'src/interfaces/models/article';
 import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
 import * as HttpErrorCode from 'src/exceptions/errorCode';
 
@@ -65,6 +71,20 @@ export const put = async (req: Request, res: Response, next: NextFunction) => {
   try {
     await verifyIdToken(req, next);
     await updateArticle(req.params.articleId, req.body);
+
+    res.status(204).send();
+  } catch (e) {
+    next(e);
+  }
+};
+
+/**
+ * 記事削除
+ */
+export const destroy = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    await verifyIdToken(req, next);
+    await deleteArticle(req.params.articleId);
 
     res.status(204).send();
   } catch (e) {
