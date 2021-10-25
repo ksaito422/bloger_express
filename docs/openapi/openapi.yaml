@@ -39,5 +39,7 @@ paths:
   # 記事
   "/articles":
     $ref: "./path/articles.yaml"
+  "/articles/{userId}":
+    $ref: "./path/articles.user.yaml"
   "/articles/{articleId}":
     $ref: "./path/articles.articleId.yaml"
