@@ -15,3 +15,25 @@ export const getUser = async (uid: string) => {
 
   return user;
 };
+
+/**
+ * ユーザー投稿記事取得
+ * @param uid
+ * @returns
+ */
+export const getArticles = async (uid: string) => {
+  const articles = await prisma.article.findMany({
+    where: {
+      userId: {
+        equals: uid,
+      },
+    },
+    select: {
+      id: true,
+      title: true,
+      content: true,
+    },
+  });
+
+  return articles;
+};
