@@ -11,6 +11,10 @@ admin.initializeApp(firebaseConfig);
 const app = express();
 const port = 8000;
 
+// JSON受け取るためのbody-parserを記述
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // src/routes/indexでルーティングする
 const router = express.Router();
 routes(router);
