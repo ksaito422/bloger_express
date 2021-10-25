@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { ArticleType } from 'src/types';
 
 const prisma = new PrismaClient();
 
@@ -24,4 +25,21 @@ export const getArticleDetail = async (id: string) => {
   });
 
   return article;
+};
+
+/**
+ * 記事投稿
+ * @param req userId
+ * @returns
+ */
+export const saveArticle = async (req: ArticleType, userId: string) => {
+  await prisma.article.create({
+    data: {
+      userId: userId,
+      title: req.title,
+      content: req.content,
+    },
+  });
+
+  return null;
 };
