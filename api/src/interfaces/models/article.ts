@@ -43,3 +43,20 @@ export const saveArticle = async (req: ArticleType, userId: string) => {
 
   return null;
 };
+
+/**
+ * 記事編集
+ * @param articleId req
+ * @returns
+ */
+export const updateArticle = async (articleId: string, req: ArticleType) => {
+  await prisma.article.update({
+    where: { id: articleId },
+    data: {
+      title: req.title,
+      content: req.content,
+    },
+  });
+
+  return null;
+};
