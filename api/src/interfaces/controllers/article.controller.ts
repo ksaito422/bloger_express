@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction } from 'express';
-import { getArticleAll, getArticleDetail } from 'src/interfaces/models/article';
+import { getArticleAll, getArticleDetail, saveArticle } from 'src/interfaces/models/article';
 import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
 import * as HttpErrorCode from 'src/exceptions/errorCode';
 
@@ -39,6 +39,20 @@ export const detail = async (req: Request, res: Response, next: NextFunction) =>
         id: article.userId,
       },
     });
+  } catch (e) {
+    next(e);
+  }
+};
+
+/**
+ * 記事投稿
+ */
+export const post = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    await verifyIdToken(req, next);
+    await saveArticle(req.body, req.params.userId);
+
+    res.status(201).json();
   } catch (e) {
     next(e);
   }

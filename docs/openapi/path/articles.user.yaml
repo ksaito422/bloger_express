@@ -1,0 +1,34 @@
+post:
+  operationId: post-article
+  summary: 記事投稿
+  tags: [article]
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    description: 記事内容投稿
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+              example: テスト01
+            content:
+              type: string
+              example: テストテストテスト
+
+  responses:
+    "201":
+      description: OK
+
+    "403":
+      $ref: "../response/Error403.yaml"
+
+    "422":
+      $ref: "../response/Error422.yaml"
+
+    "429":
+      $ref: "../response/Error429.yaml"
