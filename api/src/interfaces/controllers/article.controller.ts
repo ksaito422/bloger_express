@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from 'express';
-import { getArticleAll, getArticleDetail } from 'src/models/article';
-import { verifyIdToken } from 'src/services/verifyIdToken';
+import { getArticleAll, getArticleDetail } from 'src/interfaces/models/article';
+import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
 import * as HttpErrorCode from 'src/exceptions/errorCode';
 
 /**

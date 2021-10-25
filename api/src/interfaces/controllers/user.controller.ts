@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from 'express';
-import { verifyIdToken } from 'src/services/verifyIdToken';
-import { getUser } from 'src/models/user';
+import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
+import { getUser } from 'src/interfaces/models/user';
 
 /**
  * ユーザー情報取得
