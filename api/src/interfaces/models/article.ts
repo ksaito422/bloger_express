@@ -60,3 +60,15 @@ export const updateArticle = async (articleId: string, req: ArticleType) => {
 
   return null;
 };
+
+/**
+ * 記事削除
+ * @param articleId
+ */
+export const deleteArticle = async (articleId: string) => {
+  await prisma.article.delete({
+    where: {
+      id: articleId,
+    },
+  });
+};
