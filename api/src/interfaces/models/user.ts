@@ -53,3 +53,16 @@ export const getArticles = async (uid: string) => {
 
   return articles;
 };
+
+/**
+ * ユーザー削除
+ * @param uid
+ * @returns
+ */
+export const deleteUserById = async (uid: string) => {
+  await prisma.user.delete({
+    where: {
+      id: uid,
+    },
+  });
+};
