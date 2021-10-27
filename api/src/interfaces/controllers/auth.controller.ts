@@ -1,6 +1,23 @@
 import { Response, Request, NextFunction } from 'express';
 import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
-import { getUser } from 'src/interfaces/models/user';
+import { getUser, registUser } from 'src/interfaces/models/user';
+
+/**
+ * 新規登録
+ * @param req
+ * @param res
+ * @param next
+ */
+export const register = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const decodedToken = await verifyIdToken(req, next);
+    await registUser(decodedToken!.uid, req.body.name);
+
+    res.status(201).json({ id: decodedToken!.uid, name: req.body.name });
+  } catch (e) {
+    next(e);
+  }
+};
 
 /**
  * ログイン
