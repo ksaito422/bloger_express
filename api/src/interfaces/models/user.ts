@@ -3,6 +3,22 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 /**
+ * 新規登録
+ * @param uid name
+ * @returns
+ */
+export const registUser = async (uid: string, name: string) => {
+  await prisma.user.create({
+    data: {
+      id: uid,
+      name: name,
+    },
+  });
+
+  return null;
+};
+
+/**
  * ユーザー情報の取得
  * @param uid
  * @returns
