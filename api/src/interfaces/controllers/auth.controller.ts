@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction } from 'express';
 import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
-import { getUser, registUser } from 'src/interfaces/models/user';
+import { deleteUser } from 'src/interfaces/services/deleteUser';
+import { getUser, registUser, deleteUserById } from 'src/interfaces/models/user';
 
 /**
  * 新規登録
@@ -33,6 +34,24 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     const user = await getUser(decodedToken!.uid);
 
     res.status(200).json({ id: user.id, name: user.name });
+  } catch (e) {
+    next(e);
+  }
+};
+
+/**
+ * 退会
+ * @param req
+ * @param res
+ * @param next
+ */
+export const unregister = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const decodedToken = await verifyIdToken(req, next);
+    await deleteUser(next, decodedToken!.uid);
+    await deleteUserById(decodedToken!.uid);
+
+    res.status(204).send();
   } catch (e) {
     next(e);
   }
