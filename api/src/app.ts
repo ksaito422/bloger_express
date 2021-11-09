@@ -9,7 +9,6 @@ dotenv.config();
 admin.initializeApp(firebaseConfig);
 
 const app = express();
-const port = 8000;
 
 // JSON受け取るためのbody-parserを記述
 app.use(express.json());
@@ -45,5 +44,4 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
-// 8000番ポートでリクエスト待ち
-app.listen(port, () => console.log(`Example app listening on port ${port}`));
+export default app;
