@@ -14,10 +14,27 @@ describe('GET /article', () => {
     expect(res.statusCode).toBe(200);
   });
 
-  it('equal response data', async () => {
-    const articles = await prisma.article.findMany();
+  it('equal response length', async () => {
     const res = await supertest(app).get('/api/v1/articles');
 
-    expect(res.body).toStrictEqual(articles);
+    const expectedLength = 2;
+
+    expect(res.body).toHaveLength(expectedLength);
+  });
+
+  it('equal response data key', async () => {
+    const res = await supertest(app).get('/api/v1/articles');
+
+    const expected = {
+      id: expect.anything(),
+      userId: expect.anything(),
+      title: expect.anything(),
+      content: expect.anything(),
+      deleted: expect.anything(),
+      createdAt: expect.anything(),
+      updatedAt: expect.anything(),
+    };
+
+    expect(res.body[0]).toEqual(expected);
   });
 });
