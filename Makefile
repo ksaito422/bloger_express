@@ -59,3 +59,5 @@ migrate:
 	docker exec -it zenn_api sh -c 'yarn migrate'
 seed:
 	docker exec -it zenn_api sh -c 'yarn seed'
+test:
+	docker exec -it zenn_api sh -c 'yarn test'
