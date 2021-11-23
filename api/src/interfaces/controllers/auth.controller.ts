@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from 'express';
-import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
-import { deleteUser } from 'src/interfaces/services/deleteUser';
+import { verifyIdToken } from 'src/interfaces/models/verifyIdToken';
+import { deleteUser } from 'src/interfaces/models/deleteUser';
 import { UserRepository } from 'src/interfaces/repositories/user.repository';
 
 export class AuthController {

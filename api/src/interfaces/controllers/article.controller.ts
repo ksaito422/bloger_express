@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from 'express';
 import { ArticleRepository } from 'src/interfaces/repositories/article.repository';
-import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
+import { verifyIdToken } from 'src/interfaces/models/verifyIdToken';
 import * as HttpErrorCode from 'src/exceptions/errorCode';
 
 export class ArticleController {
