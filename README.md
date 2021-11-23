@@ -2,7 +2,6 @@
 
 - node.js
 - ReactNative
-- Next.js
 - TypeScript
 
 上記の学習用リポジトリ
@@ -40,10 +39,38 @@ dockerfile など
 
   api などのバックエンド
 
-- front
-
-  web フロントエンド
-
 - app
 
   ネイティブアプリ
+
+### アーキテクチャ
+
+#### api
+
+- **test**
+
+  - テストコードの置き場
+
+- config
+
+  - 環境変数等
+
+- exceptions
+
+  - 例外処理のロジック
+
+- interfaces
+
+  - controller
+
+    - リクエストを受けて、レスポンスを返すだけ（ロジックは書かない）
+
+  - models
+
+    - 共通のビジネスロジックなどを書く
+
+  - repositories
+    - データベースの通信を行う場所（主に CRUD を行う）
+
+- routes
+  - ルーティングのみ
