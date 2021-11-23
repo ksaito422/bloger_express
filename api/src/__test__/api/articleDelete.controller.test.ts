@@ -1,6 +1,6 @@
 import app from 'src/app';
 import supertest from 'supertest';
-import { verifyIdToken } from 'src/interfaces/services/verifyIdToken';
+import { verifyIdToken } from 'src/interfaces/models/verifyIdToken';
 
 describe('DELETE /articles/{articleId}', () => {
   it('return 403', async () => {
