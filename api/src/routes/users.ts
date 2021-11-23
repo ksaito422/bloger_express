@@ -1,7 +1,9 @@
 import { Router } from 'express';
-import { show, getArticlesByUserId } from 'src/interfaces/controllers/user.controller';
+import { UserController } from 'src/interfaces/controllers/user.controller';
+
+const user = new UserController();
 
 export default function (router: Router) {
-  router.get('/users/:userId', show);
-  router.get('/users/:userId/articles', getArticlesByUserId);
+  router.get('/users/:userId', user.show);
+  router.get('/users/:userId/articles', user.getArticlesByUserId);
 }

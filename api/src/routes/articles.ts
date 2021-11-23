@@ -1,11 +1,12 @@
 import { Router } from 'express';
+import { ArticleController } from 'src/interfaces/controllers/article.controller';
 
-import { index, detail, post, put, destroy } from 'src/interfaces/controllers/article.controller';
+const article = new ArticleController();
 
 export default function (router: Router) {
-  router.get('/articles', index);
-  router.get('/articles/:articleId', detail);
-  router.post('/articles/:userId', post);
-  router.put('/articles/:articleId', put);
-  router.delete('/articles/:articleId', destroy);
+  router.get('/articles', article.index);
+  router.get('/articles/:articleId', article.detail);
+  router.post('/articles/:userId', article.post);
+  router.put('/articles/:articleId', article.put);
+  router.delete('/articles/:articleId', article.destroy);
 }
