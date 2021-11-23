@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
-import { register, login, unregister } from 'src/interfaces/controllers/auth.controller';
+import { AuthController } from 'src/interfaces/controllers/auth.controller';
+
+const auth = new AuthController();
 
 export default function (router: Router) {
-  router.post('/auth/register', register);
-  router.post('/auth/login', login);
-  router.delete('/auth/unregister', unregister);
+  router.post('/auth/register', auth.register);
+  router.post('/auth/login', auth.login);
+  router.delete('/auth/unregister', auth.unregister);
 }
