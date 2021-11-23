@@ -1,11 +1,5 @@
 import app from 'src/app';
 import supertest from 'supertest';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
-afterAll(async () => {
-  await prisma.$disconnect();
-});
 
 describe('GET /article', () => {
   it('return 200', async () => {
