@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "b233aeaf-e1b4-450e-8c01-0b5c8444334a",
+		"name": "Zenn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "ログイン",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhmYmRmMjQxZTdjM2E2NTEzNTYwNmRkYzFmZWQyYzU1MjI2MzBhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzQ4ODU1NTcsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNDg4NTU1NywiZXhwIjoxNjM0ODg5MTU3LCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.EYZYYt628ZInvy7E57FOXVX32XUuVQ8cfdO7S16OXWaJGOv0jh78bxPjhWLN-N08D96if_AYsTO4llHX6bKjM9GfSsinKR96x5mv8v94YTWB71E1vqRTOpOdJLOqJ_5TjNEhHgWGptttghTAOCAXzohD35GpIVJ7k4n4fXUBban-lAfClQz6L8YbgZ057v_VqZHuQoCn3krlk0dmRpRcn9MXnn1HY7U0NGDNno2QHCNwbBkDC9gqxTyuslUb9mTmdW0PLHjtenPP7tzPqnV9KBnsp9HwQ1fSQTM_7pxhTkMnqfocaxW-iSSoQpeomOB6KroIOIy5XAPxwyUHt0AdHQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新規登録",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1MjU1NWEyMjM3MWYxMGY0ZTIyZjFhY2U3NjJmYzUwZmYzYmVlMGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzUzMDEyNjIsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNTMwMTI2MiwiZXhwIjoxNjM1MzA0ODYyLCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.iZalFRaMHTZVtt4WzEECXavdyZ7b9m2cHlV3mDUodvAKVj1XlZAGGivoT-lTgn6b1zQB90ZcO7XP-wAMLtpCYi7T__7_FdSgXC8OFNVJotL1BG475eF0iy1WiwqFcB5S7HgDbxD4uJ-n-fyKrSzCs-r4RfQodgdqadGnhMUqOZvpOl1WDVgmAlA7HW473KwhtL5UCrTJfsk6NBcbLJSWo4vh__UUchmhw5Fyy78UbK_K3fVsiGd3CbVAu3yx8HazQ7vTmPTXKdUdNOHPJaNCif-4IwxskGde9XO1hYD9ByI8fIXNfDXuyokESfGB4tRQ5yORJtCInDPD5ivkcfGPuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"saito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "退会",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1MjU1NWEyMjM3MWYxMGY0ZTIyZjFhY2U3NjJmYzUwZmYzYmVlMGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzUzMDEyNjIsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNTMwMTI2MiwiZXhwIjoxNjM1MzA0ODYyLCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.iZalFRaMHTZVtt4WzEECXavdyZ7b9m2cHlV3mDUodvAKVj1XlZAGGivoT-lTgn6b1zQB90ZcO7XP-wAMLtpCYi7T__7_FdSgXC8OFNVJotL1BG475eF0iy1WiwqFcB5S7HgDbxD4uJ-n-fyKrSzCs-r4RfQodgdqadGnhMUqOZvpOl1WDVgmAlA7HW473KwhtL5UCrTJfsk6NBcbLJSWo4vh__UUchmhw5Fyy78UbK_K3fVsiGd3CbVAu3yx8HazQ7vTmPTXKdUdNOHPJaNCif-4IwxskGde9XO1hYD9ByI8fIXNfDXuyokESfGB4tRQ5yORJtCInDPD5ivkcfGPuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/unregister",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"unregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "ユーザー情報取得",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhmYmRmMjQxZTdjM2E2NTEzNTYwNmRkYzFmZWQyYzU1MjI2MzBhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzQ4ODgyOTAsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNDg4ODI5MCwiZXhwIjoxNjM0ODkxODkwLCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.b5k39w9DbCN0iYPJKromIPdolyXdX-zLrxEK0GSOv5wQwUlDTzkKMIZT5jkQm5-FsxfcgjsHk43RYX995xPh5PY7jYVVkTrbO35xg_re-B_uTIP9_EaE_StKQ021AMBXVi2IPBnLKmmPAROkAieK6Tt0WaFR6AW-161azE-ayeccDcpiPq99WhnNG2R6-fuFNEFeI0SIoRpsg46I4ajFz_mVv9ZAXGiYtlRip8ePYtPV_7Fr-lAjql5Ez7Mdbl3A3oLgTUkIg6FgVdayqgx9FpGqPD6G-Fw6OqJN2fw1KZJ8JLaLhxrkuEuDb0IpWRcwhx3UBSzmN_mvwh36IlIxmA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/kH58rK3wtWfYTKY42KY9b2rVHV23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"kH58rK3wtWfYTKY42KY9b2rVHV23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ユーザーの記事取得",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1MjU1NWEyMjM3MWYxMGY0ZTIyZjFhY2U3NjJmYzUwZmYzYmVlMGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzUyOTc1NTgsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNTI5NzU1OCwiZXhwIjoxNjM1MzAxMTU4LCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.YOxr6oNch31IcOzpTRdK-E9H0zdg0HD2n-bdKGUUpfT1gSQwwBY4ajF_u_0zHn84cTZF_KW72JZuEXCu6zTR1-vJ3ZV9DL-F-9TDTxvtyhpI5KIOUTvwdh0OlUZT7bFhuuZkh6SI-WOq2ATDKPwPLyci-ZEGnmoTU37V6fc2frIwsodUZdFf-F8_zOhFpSDFyEATtXg1kP_9ERv93SS84tg7ZlSdngDYTC9YGkQ6dmpbPmTMwVhd79cMHqvRtTSmF1wVXFNnqvu8tUuEwA9KKRq7rHyN0wd_rM1ShBtuMmaDT7AeqHunDyVUbu0sfFD8sAS4DhW_saXrrbTJe80CNw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/7047a861-5e10-492b-8cf1-be191f103388/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"7047a861-5e10-492b-8cf1-be191f103388",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "article",
+			"item": [
+				{
+					"name": "記事詳細",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhmYmRmMjQxZTdjM2E2NTEzNTYwNmRkYzFmZWQyYzU1MjI2MzBhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzUxMjUwNzcsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNTEyNTA3NywiZXhwIjoxNjM1MTI4Njc3LCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.C088Mpyt1K4AVYJDDOFnsk8UZnr5k16JvY2bSRaruH0qBd6fb1bPC-J-zJUjC2P47m_y8BCYb8AuZnqMjLCcM27kNHZDEFgzBvPFprlK0ubdZdmxwZ9iszrk_ek2oJqJq2M4uhUQTSJ-7i4GhLEc61INqVJJq6r6PprUjfBEuLNxcJvb-uFJfxFIVmfyv9ilMgCp4Oq0X3HMc9uTYTOcPFWF1w8tLhEraggjypsE_4KAsjgfxmPuud3luJvh5i1h6tlTC-VsfjAtOwAg_BrEFRor_zBRTNXkvtYnQT7eg27urYbeH9aQpQv7spfoCsCq1ffkz_2BwG8kphezMMrjtg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/articles/7047a861-5e10-492b-8cf1-be191f103387",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"articles",
+								"7047a861-5e10-492b-8cf1-be191f103387"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "記事編集",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhmYmRmMjQxZTdjM2E2NTEzNTYwNmRkYzFmZWQyYzU1MjI2MzBhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzUxMzI5OTAsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNTEzMjk5MCwiZXhwIjoxNjM1MTM2NTkwLCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.BcyOgY2s3nmolSfc_vNOaXpVPFVK_njFVxUsUx4C0GVui4Cr4dMLvTo8uVPvPT82RshdWLu5CMoDLqhncb0MRgm3m6YtQXt5eyM5bN5o6SgxAzlK3BnlfOO4LUlvcVH3R-lRZHsrrbSNqkKeYAMiQr9ETvQBk9eg9DFeTjNNyyXcJu8DnmRA0uwmUGrGM-mM96Cp6En-toTfn-VXtidDCTTtJhix7l4avZJCWDHpeV30hKCde38HJwtC3VoNwRV17xWeUYz-1dL1P4urNCR5fPmMm5plLzgi6ZG0wT7ygedIFBQtCsIc7yInXszPcTKBWQ6BffeF9nAwpQYNHM7HeQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"テスト\",\n    \"content\": \"テストコンテンツあああ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/articles/140ffa2e-a431-42be-a48f-87608331a343",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"articles",
+								"140ffa2e-a431-42be-a48f-87608331a343"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "記事削除",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1MjU1NWEyMjM3MWYxMGY0ZTIyZjFhY2U3NjJmYzUwZmYzYmVlMGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vemVubi1iMWE4OSIsImF1ZCI6Inplbm4tYjFhODkiLCJhdXRoX3RpbWUiOjE2MzUyOTc1NTgsInVzZXJfaWQiOiJrSDU4ckszd3RXZllUS1k0MktZOWIyclZIVjIzIiwic3ViIjoia0g1OHJLM3d0V2ZZVEtZNDJLWTliMnJWSFYyMyIsImlhdCI6MTYzNTI5NzU1OCwiZXhwIjoxNjM1MzAxMTU4LCJlbWFpbCI6ImtpdHNpdC4zOUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsia2l0c2l0LjM5QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.YOxr6oNch31IcOzpTRdK-E9H0zdg0HD2n-bdKGUUpfT1gSQwwBY4ajF_u_0zHn84cTZF_KW72JZuEXCu6zTR1-vJ3ZV9DL-F-9TDTxvtyhpI5KIOUTvwdh0OlUZT7bFhuuZkh6SI-WOq2ATDKPwPLyci-ZEGnmoTU37V6fc2frIwsodUZdFf-F8_zOhFpSDFyEATtXg1kP_9ERv93SS84tg7ZlSdngDYTC9YGkQ6dmpbPmTMwVhd79cMHqvRtTSmF1wVXFNnqvu8tUuEwA9KKRq7rHyN0wd_rM1ShBtuMmaDT7AeqHunDyVUbu0sfFD8sAS4DhW_saXrrbTJe80CNw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/articles/7047a861-5e10-492b-8cf1-be191f103387",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"articles",
+								"7047a861-5e10-492b-8cf1-be191f103387"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "全記事取得",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
